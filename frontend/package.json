@@ -28,8 +28,8 @@
     "concurrently": "latest",
     "electron": "latest",
     "electron-builder": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
     "typescript": "latest",
     "wait-on": "latest"
   },
