@@ -2,12 +2,14 @@
   "name": "pill-counter-frontend",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "electron-dev": "concurrently \"next dev\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-dev": "concurrently \"next dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "build-arm64": "next build && electron-builder --arm64 --linux deb"
   },
   "dependencies": {
     "next": "latest",
@@ -25,7 +27,24 @@
     "postcss": "latest",
     "tailwindcss": "latest",
     "electron": "latest",
+    "electron-builder": "latest",
     "concurrently": "latest",
     "wait-on": "latest"
+  },
+  "build": {
+    "appId": "com.pillcounter.app",
+    "productName": "AI Pill Counter",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "linux": {
+      "target": "deb",
+      "category": "Science"
+    }
   }
 }
